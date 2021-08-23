@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="developerModel"
+            type="com.quicksell_assignment.model.DeveloperModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvdeveloper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="@dimen/_3sdp"
+            card_view:cardCornerRadius="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorbackground">
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"
+                    bind:avatar="@{developerModel.avatar}"
+                    bind:layout_constraintBottom_toBottomOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="parent"
+                     />
+
+                <TextView
+                    android:id="@+id/tv_productname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_below="@+id/product_image"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:hint="@string/product_name"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@{developerModel.username}"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="@dimen/_14ssp"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintHorizontal_bias="0.0"
+                    bind:layout_constraintStart_toEndOf="@+id/product_image"
+                    bind:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_productname"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/product_description"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@{developerModel.name}"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="@dimen/_12ssp"
+                    bind:layout_constraintBottom_toBottomOf="parent"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintHorizontal_bias="1.0"
+                    bind:layout_constraintStart_toEndOf="@+id/product_image"
+                    bind:layout_constraintTop_toBottomOf="@+id/tv_productname" />
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:textSize="@dimen/_16ssp"
+                    android:gravity="center"
+                    bind:layout_constraintBottom_toTopOf="@+id/tv_description"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintHorizontal_bias="0.894"
+                    bind:layout_constraintStart_toEndOf="@+id/tv_productname"
+                    bind:layout_constraintTop_toTopOf="parent"
+                    bind:layout_constraintVertical_bias="0.461"
+                    android:hint="@string/_100"
+                    android:textColorHint="@color/colorAccent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+</layout>
